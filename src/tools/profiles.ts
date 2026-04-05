@@ -1,9 +1,9 @@
 // Profile tools — list, create, delete, and show defaults
-// Profiles are named weight sets that change how LinkCheck scores URLs
+// Profiles are named weight sets that change how Unphurl scores URLs
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { LinkCheckAPI } from "../api.js";
+import type { UnphurlAPI } from "../api.js";
 import { ApiRequestError } from "../api.js";
 import { DEFAULT_SIGNALS, DEFAULTS_NOTE } from "../defaults.js";
 import {
@@ -15,7 +15,7 @@ import {
 
 export function registerProfileTools(
   server: McpServer,
-  api: LinkCheckAPI
+  api: UnphurlAPI
 ): void {
   // --- list_profiles ---
   server.registerTool(
@@ -23,7 +23,7 @@ export function registerProfileTools(
     {
       description: `List all custom scoring profiles on this account. Returns profile names and their custom weight overrides.
 
-Profiles are named weight sets that change how LinkCheck scores URLs. Different use cases need different scoring. A cold email agent cares about dead domains. A security bot cares about phishing. Profiles let one account serve multiple use cases.
+Profiles are named weight sets that change how Unphurl scores URLs. Different use cases need different scoring. A cold email agent cares about dead domains. A security bot cares about phishing. Profiles let one account serve multiple use cases.
 
 Profiles only override specific weights. Any signal not specified in a profile uses the default weight. Use show_defaults to see all 22 signals and their default weights.`,
       inputSchema: {},
@@ -61,7 +61,7 @@ Common profiles:
 - Lead gen: weight parked (35), http_only (20), chain_incomplete (20) for dead business detection.
 - SEO audit: weight redirects_5 (30), chain_incomplete (30), parked (25) for link quality.
 
-See the LinkCheck API documentation for all 19 use case weight examples.`,
+See the Unphurl API documentation for all 19 use case weight examples.`,
       inputSchema: {
         name: z
           .string()

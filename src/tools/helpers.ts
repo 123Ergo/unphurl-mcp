@@ -28,7 +28,7 @@ export function authError(): CallToolResult {
         text: JSON.stringify({
           error: "auth_required",
           message:
-            "API key is missing. Set LINKCHECK_API_KEY in your MCP server configuration, or use the signup tool to create an account first.",
+            "API key is missing. Set UNPHURL_API_KEY in your MCP server configuration, or use the signup tool to create an account first.",
         }),
       },
     ],

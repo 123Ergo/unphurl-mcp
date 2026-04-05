@@ -3,7 +3,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { LinkCheckAPI } from "../api.js";
+import type { UnphurlAPI } from "../api.js";
 import { ApiRequestError } from "../api.js";
 import {
   successResult,
@@ -14,7 +14,7 @@ import {
 
 export function registerHistoryTool(
   server: McpServer,
-  api: LinkCheckAPI
+  api: UnphurlAPI
 ): void {
   server.registerTool(
     "check_history",

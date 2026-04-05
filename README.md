@@ -1,6 +1,6 @@
-# @linkcheck/mcp-server
+# @unphurl/mcp-server
 
-Domain intelligence for AI tools. LinkCheck analyses URLs across five dimensions (redirect behaviour, brand impersonation, domain age, SSL/TLS validity, parked domain detection) and returns structured signals with a configurable risk score. One URL in, structured intelligence out. Your agent decides what to do with it.
+Domain intelligence for AI tools. Unphurl analyses URLs across seven dimensions (redirect behaviour, brand impersonation, domain intelligence via RDAP, SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment) and returns structured signals with a configurable risk score. 22 scoring weights, all customizable per use case. One URL in, structured intelligence out. Your agent decides what to do with it.
 
 ## What it costs
 
@@ -15,11 +15,11 @@ Add to your `.mcp.json` (Claude Code, Cursor, Windsurf, etc.):
 ```json
 {
   "mcpServers": {
-    "linkcheck": {
+    "unphurl": {
       "command": "npx",
-      "args": ["-y", "@linkcheck/mcp-server"],
+      "args": ["-y", "@unphurl/mcp-server"],
       "env": {
-        "LINKCHECK_API_KEY": "lc_live_your_key_here"
+        "UNPHURL_API_KEY": "uph_your_key_here"
       }
     }
   }
@@ -28,11 +28,11 @@ Add to your `.mcp.json` (Claude Code, Cursor, Windsurf, etc.):
 
 ### 2. No account yet?
 
-The AI can create one for you. Just ask it to sign up for LinkCheck. The `signup` tool works without an API key. After signup, add the key to your MCP configuration and restart.
+The AI can create one for you. Just ask it to sign up for Unphurl. The `signup` tool works without an API key. After signup, add the key to your MCP configuration and restart.
 
 ### 3. Optional: custom API URL
 
-For local development or staging, set `LINKCHECK_API_URL` in the env block. Defaults to `https://linkcheck-api.linkcheck.workers.dev`.
+For local development or staging, set `UNPHURL_API_URL` in the env block. Defaults to `https://unphurl-api.unphurl.workers.dev`.
 
 ## Tools
 
@@ -58,10 +58,10 @@ To install, copy `skills/check-url-safety.md` to your skills directory:
 
 ```bash
 # Claude Code
-cp node_modules/@linkcheck/mcp-server/skills/check-url-safety.md ~/.claude/skills/
+cp node_modules/@unphurl/mcp-server/skills/check-url-safety.md ~/.claude/skills/
 
 # Or for a specific project
-cp node_modules/@linkcheck/mcp-server/skills/check-url-safety.md .claude/skills/
+cp node_modules/@unphurl/mcp-server/skills/check-url-safety.md .claude/skills/
 ```
 
 The skill teaches the agent to:
@@ -72,9 +72,9 @@ The skill teaches the agent to:
 
 ## Links
 
-- [API Documentation](https://linkcheckapi.com/docs)
-- [CLI Tool](https://www.npmjs.com/package/linkcheck)
-- [Website](https://linkcheckapi.com)
+- [API Documentation](https://unphurl.com/docs)
+- [CLI Tool](https://www.npmjs.com/package/unphurl)
+- [Website](https://unphurl.com)
 
 ## License
 

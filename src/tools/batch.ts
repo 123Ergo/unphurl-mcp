@@ -4,7 +4,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { LinkCheckAPI } from "../api.js";
+import type { UnphurlAPI } from "../api.js";
 import { ApiRequestError } from "../api.js";
 import type { BatchResultItem } from "../types.js";
 import {
@@ -18,7 +18,7 @@ import {
 const POLL_INTERVAL_MS = 2000;
 const TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes
 
-export function registerBatchTool(server: McpServer, api: LinkCheckAPI): void {
+export function registerBatchTool(server: McpServer, api: UnphurlAPI): void {
   server.registerTool(
     "check_urls",
     {

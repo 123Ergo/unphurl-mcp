@@ -1,4 +1,4 @@
-// TypeScript interfaces for LinkCheck API responses
+// TypeScript interfaces for Unphurl API responses
 // Adapted from the CLI's types.ts — same API, separate package
 
 export interface ScoreBreakdownItem {

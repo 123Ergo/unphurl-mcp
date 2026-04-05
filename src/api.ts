@@ -1,4 +1,4 @@
-// HTTP client for the LinkCheck API
+// HTTP client for the Unphurl API
 // Uses Node's built-in https/http modules. Same pattern as the CLI, separate package.
 
 import * as https from "node:https";
@@ -72,7 +72,7 @@ function request(
 // Paths that don't require an API key
 const PUBLIC_PATHS = ["/v1/signup", "/v1/pricing"];
 
-export class LinkCheckAPI {
+export class UnphurlAPI {
   private baseUrl: string;
   private apiKey: string | undefined;
 

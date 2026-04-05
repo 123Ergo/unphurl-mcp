@@ -3,7 +3,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { LinkCheckAPI } from "../api.js";
+import type { UnphurlAPI } from "../api.js";
 import { ApiRequestError } from "../api.js";
 import {
   successResult,
@@ -14,7 +14,7 @@ import {
 
 export function registerBillingTools(
   server: McpServer,
-  api: LinkCheckAPI
+  api: UnphurlAPI
 ): void {
   // --- get_balance ---
   server.registerTool(
@@ -22,7 +22,7 @@ export function registerBillingTools(
     {
       description: `Check your pipeline check credit balance. Shows credits remaining, total purchased, total used, and lifetime free lookups count.
 
-Credits are consumed only when unknown domains run through the full analysis pipeline. Known domains (Tranco Top 100K) and cached domains (previously analysed by any LinkCheck customer) are always free.
+Credits are consumed only when unknown domains run through the full analysis pipeline. Known domains (Tranco Top 100K) and cached domains (previously analysed by any Unphurl customer) are always free.
 
 If credits_remaining is 0, you can still check known and cached domains for free. To check unknown domains, purchase more credits using the "purchase" tool.`,
       inputSchema: {},

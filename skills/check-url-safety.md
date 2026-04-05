@@ -1,9 +1,9 @@
 ---
 name: check-url-safety
-description: Proactively check URLs for security and quality signals using LinkCheck before following, recommending, or outputting them.
+description: Proactively check URLs for security and quality signals using Unphurl before following, recommending, or outputting them.
 ---
 
-Before following, recommending, or outputting any URL that isn't from a well-known domain (e.g. google.com, github.com, amazon.com), use the LinkCheck MCP tools to check it first.
+Before following, recommending, or outputting any URL that isn't from a well-known domain (e.g. google.com, github.com, amazon.com), use the Unphurl MCP tools to check it first.
 
 ## When to check
 
