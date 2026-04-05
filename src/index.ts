@@ -1,0 +1,40 @@
+// LinkCheck MCP Server — domain intelligence for AI tools
+// Wraps the LinkCheck API as 11 MCP tools for Claude Code, Cursor, Windsurf, etc.
+//
+// Configuration:
+//   LINKCHECK_API_KEY  — your API key (optional for signup/pricing/defaults)
+//   LINKCHECK_API_URL  — API base URL (defaults to production)
+
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { LinkCheckAPI } from "./api.js";
+import { registerSignupTool } from "./tools/signup.js";
+import { registerCheckTool } from "./tools/check.js";
+import { registerBatchTool } from "./tools/batch.js";
+import { registerProfileTools } from "./tools/profiles.js";
+import { registerBillingTools } from "./tools/billing.js";
+import { registerHistoryTool } from "./tools/history.js";
+
+const DEFAULT_API_URL = "https://linkcheck-api.linkcheck.workers.dev";
+
+const apiKey = process.env.LINKCHECK_API_KEY || undefined;
+const apiUrl = process.env.LINKCHECK_API_URL || DEFAULT_API_URL;
+
+const api = new LinkCheckAPI(apiUrl, apiKey);
+
+const server = new McpServer({
+  name: "linkcheck",
+  version: "0.1.0",
+});
+
+// Register all 11 tools across 6 modules
+registerSignupTool(server, api);
+registerCheckTool(server, api);
+registerBatchTool(server, api);
+registerProfileTools(server, api); // list_profiles, create_profile, delete_profile, show_defaults
+registerBillingTools(server, api); // get_balance, get_pricing, purchase
+registerHistoryTool(server, api);
+
+// Start the server on stdio
+const transport = new StdioServerTransport();
+await server.connect(transport);

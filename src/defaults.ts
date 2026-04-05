@@ -1,0 +1,68 @@
+// Hardcoded default scoring weights and signal descriptions
+// Used by show_defaults tool — no API call needed
+
+export const DEFAULT_SIGNALS = [
+  {
+    key: "brand_impersonation",
+    default_weight: 40,
+    description: "Domain name resembles a major brand (Levenshtein distance + homoglyph analysis against 50+ brands)",
+  },
+  {
+    key: "domain_age_7",
+    default_weight: 25,
+    description: "Domain registered within the last 7 days",
+  },
+  {
+    key: "domain_age_30",
+    default_weight: 15,
+    description: "Domain registered within the last 30 days",
+  },
+  {
+    key: "domain_age_90",
+    default_weight: 5,
+    description: "Domain registered within the last 90 days",
+  },
+  {
+    key: "ssl_invalid",
+    default_weight: 10,
+    description: "SSL/TLS certificate is missing, expired, or invalid",
+  },
+  {
+    key: "http_only",
+    default_weight: 5,
+    description: "Site has no SSL/TLS at all (HTTP only)",
+  },
+  {
+    key: "redirects_3",
+    default_weight: 10,
+    description: "URL has 3-4 redirects in the chain",
+  },
+  {
+    key: "redirects_5",
+    default_weight: 25,
+    description: "URL has 5 or more redirects in the chain",
+  },
+  {
+    key: "chain_incomplete",
+    default_weight: 15,
+    description: "Redirect chain could not be fully followed (timeout, blocked, or loop)",
+  },
+  {
+    key: "parked",
+    default_weight: 10,
+    description: "Domain is parked (registrar placeholder, 'for sale' page, or parking service)",
+  },
+  {
+    key: "compound",
+    default_weight: 10,
+    description: "3 or more signals detected together (amplifier for multiple weak signals)",
+  },
+  {
+    key: "phishing_floor",
+    default_weight: 80,
+    description: "Minimum score applied when brand impersonation is detected alongside any other signal",
+  },
+] as const;
+
+export const DEFAULTS_NOTE =
+  "Profiles override specific weights. Signals not in a profile use these defaults. The suspicious_tld signal (+3 points) is internal only and not configurable.";

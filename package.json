@@ -1,0 +1,44 @@
+{
+  "name": "@linkcheck/mcp-server",
+  "version": "0.1.0",
+  "description": "LinkCheck domain intelligence MCP server — check URLs for security and quality signals from any AI tool",
+  "type": "module",
+  "bin": {
+    "linkcheck-mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "skills/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"const fs=require('fs');const f='dist/index.js';const c=fs.readFileSync(f,'utf8');if(!c.startsWith('#!')){fs.writeFileSync(f,'#!/usr/bin/env node\\n'+c);}fs.chmodSync(f,0o755)\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "linkcheck",
+    "domain-intelligence",
+    "url-safety",
+    "phishing-detection",
+    "ai-tools",
+    "claude",
+    "cursor"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/123Ergo/linkcheck-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  }
+}
