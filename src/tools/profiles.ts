@@ -53,7 +53,7 @@ Weights are points, not percentages. Each weight is the number of points that si
 
 Use show_defaults to see all 22 signals with their default weights and descriptions before creating a profile. Use check_url or check_urls with the "profile" parameter to score results with this profile.
 
-Maximum 10 profiles per account. Profile name "default" is reserved.
+Maximum 20 profiles per account. Profile name "default" is reserved.
 
 Common profiles:
 - Cold email: weight parked (30), chain_incomplete (25), ssl_invalid (15) higher. Lower brand_impersonation (10).
