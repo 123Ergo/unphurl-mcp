@@ -44,7 +44,7 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 | `list_profiles` | List custom scoring profiles | Yes |
 | `create_profile` | Create or update a scoring profile | Yes |
 | `delete_profile` | Delete a scoring profile | Yes |
-| `show_defaults` | Show all 12 scoring signals with default weights | No |
+| `show_defaults` | Show all 22 scoring signals with default weights | No |
 | `get_balance` | Check pipeline check credit balance | Yes |
 | `get_pricing` | Show available credit packages and pricing | No |
 | `purchase` | Purchase credits (returns Stripe Checkout URL) | Yes |

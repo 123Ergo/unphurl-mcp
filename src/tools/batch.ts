@@ -24,7 +24,7 @@ export function registerBatchTool(server: McpServer, api: UnphurlAPI): void {
     {
       description: `Check multiple URLs in a single batch. Returns results for all URLs, handling async processing automatically.
 
-Each URL is analysed across eight dimensions: redirect behaviour, brand impersonation, domain age and registrar, domain expiration and status, SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment. Known and cached URLs return results immediately. Unknown URLs are queued for pipeline processing. This tool automatically polls for results until all URLs are complete or the 5-minute timeout is reached. You don't need to manage polling or job tracking.
+Each URL is analysed across seven dimensions: redirect behaviour, brand impersonation, domain intelligence (age, registrar, expiration, status codes, nameservers via RDAP), SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment. Known and cached URLs return results immediately. Unknown URLs are queued for pipeline processing. This tool automatically polls for results until all URLs are complete or the 5-minute timeout is reached. You don't need to manage polling or job tracking.
 
 If the timeout is reached before all results are complete, returns whatever is available with a clear message indicating which URLs are still processing. The user can check results later via check_history.
 
