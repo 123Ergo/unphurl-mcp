@@ -62,7 +62,57 @@ export const DEFAULT_SIGNALS = [
     default_weight: 80,
     description: "Minimum score applied when brand impersonation is detected alongside any other signal",
   },
+  {
+    key: "url_long",
+    default_weight: 3,
+    description: "URL is longer than 200 characters",
+  },
+  {
+    key: "path_deep",
+    default_weight: 3,
+    description: "URL path has more than 4 segments",
+  },
+  {
+    key: "subdomain_excessive",
+    default_weight: 5,
+    description: "Domain has more than 3 subdomains",
+  },
+  {
+    key: "domain_entropy_high",
+    default_weight: 5,
+    description: "Domain name has high character entropy (random-looking)",
+  },
+  {
+    key: "url_contains_ip",
+    default_weight: 10,
+    description: "URL uses an IP address instead of a domain name",
+  },
+  {
+    key: "encoded_hostname",
+    default_weight: 5,
+    description: "Hostname contains percent-encoded characters",
+  },
+  {
+    key: "tld_redirect_change",
+    default_weight: 5,
+    description: "TLD changed between input URL and final destination",
+  },
+  {
+    key: "expiring_soon",
+    default_weight: 10,
+    description: "Domain registration expires within 30 days",
+  },
+  {
+    key: "domain_status_bad",
+    default_weight: 15,
+    description: "Domain has a bad status code (pendingDelete, serverHold, etc.)",
+  },
+  {
+    key: "no_mx_record",
+    default_weight: 5,
+    description: "Domain has no MX record (cannot receive email)",
+  },
 ] as const;
 
 export const DEFAULTS_NOTE =
-  "Profiles override specific weights. Signals not in a profile use these defaults. The suspicious_tld signal (+3 points) is internal only and not configurable.";
+  "Profiles override specific weights. Signals not in a profile use these defaults. 22 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";

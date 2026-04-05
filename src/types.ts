@@ -18,9 +18,23 @@ export interface RedirectSignals {
 export interface DomainSignals {
   age_days: number | null;
   registrar: string | null;
+  expires_days: number | null;
+  status_codes: string[] | null;
+  nameservers: string[] | null;
+  has_mx_record: boolean | null;
   is_parked: boolean;
   is_known: boolean;
   content_type: string | null;
+}
+
+export interface UrlAnalysisSignals {
+  url_length: number | null;
+  path_depth: number | null;
+  subdomain_count: number | null;
+  domain_entropy: number | null;
+  contains_ip: boolean | null;
+  encoded_hostname: boolean | null;
+  tld_changed_on_redirect: boolean | null;
 }
 
 export interface SslSignals {
@@ -37,6 +51,7 @@ export interface Signals {
   domain: DomainSignals;
   ssl: SslSignals;
   phishing: PhishingSignals;
+  url_analysis?: UrlAnalysisSignals;
 }
 
 export interface Meta {

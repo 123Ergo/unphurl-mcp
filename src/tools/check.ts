@@ -18,7 +18,7 @@ export function registerCheckTool(server: McpServer, api: LinkCheckAPI): void {
     {
       description: `Check a single URL for security and data quality signals. Returns a risk score (0-100), detailed signal breakdown, and metadata.
 
-LinkCheck analyses URLs across five dimensions: redirect behaviour, brand impersonation, domain age and registrar, SSL/TLS validity, and parked domain detection. The score is calculated from these signals using either default weights or a custom scoring profile.
+LinkCheck analyses URLs across eight dimensions: redirect behaviour, brand impersonation, domain age and registrar, domain expiration and status, SSL/TLS validity, parked domain detection, URL structural analysis (length, path depth, subdomain count, entropy), and DNS enrichment (MX records, nameservers). The score is calculated from these signals using either default weights or a custom scoring profile.
 
 Higher scores mean more suspicious. The score is a signal, not a verdict. You decide the threshold based on the use case.
 
