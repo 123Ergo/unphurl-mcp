@@ -15,7 +15,7 @@ import { registerProfileTools } from "./tools/profiles.js";
 import { registerBillingTools } from "./tools/billing.js";
 import { registerHistoryTool } from "./tools/history.js";
 
-const DEFAULT_API_URL = "https://unphurl-api.unphurl.workers.dev";
+const DEFAULT_API_URL = "https://api.unphurl.com";
 
 const apiKey = process.env.UNPHURL_API_KEY || process.env.LINKCHECK_API_KEY || undefined;
 const apiUrl = process.env.UNPHURL_API_URL || process.env.LINKCHECK_API_URL || DEFAULT_API_URL;

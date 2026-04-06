@@ -32,7 +32,7 @@ The AI can create one for you. Just ask it to sign up for Unphurl. The `signup` 
 
 ### 3. Optional: custom API URL
 
-For local development or staging, set `UNPHURL_API_URL` in the env block. Defaults to `https://unphurl-api.unphurl.workers.dev`.
+For local development or staging, set `UNPHURL_API_URL` in the env block. Defaults to `https://api.unphurl.com`.
 
 ## Tools
 
