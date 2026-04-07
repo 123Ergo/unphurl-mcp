@@ -33,6 +33,10 @@ function request(
   return new Promise((resolve, reject) => {
     const parsed = new URL(url);
     const isHttps = parsed.protocol === "https:";
+    if (!isHttps && !["localhost", "127.0.0.1"].includes(parsed.hostname)) {
+      reject(new Error("HTTPS is required for non-local API URLs. Your API key would be sent in plaintext."));
+      return;
+    }
     const lib = isHttps ? https : http;
 
     const opts: https.RequestOptions = {

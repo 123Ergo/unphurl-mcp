@@ -25,9 +25,12 @@ Results are paginated. Use page and limit parameters to navigate. Default is 20 
 
 History is retained for 90 days. Account-level stats (total credits, balance) never expire.`,
       inputSchema: {
-        page: z.number().optional().describe("Page number (default 1)"),
+        page: z.number().int().min(1).optional().describe("Page number (default 1)"),
         limit: z
           .number()
+          .int()
+          .min(1)
+          .max(100)
           .optional()
           .describe("Results per page, max 100 (default 20)"),
       },

@@ -28,7 +28,7 @@ Use the "profile" parameter to score results with custom weights. For example, a
 
 If the account has zero credits and the URL requires a full pipeline check, returns a 402 error with a link to purchase more credits.`,
       inputSchema: {
-        url: z.string().describe("The URL to check"),
+        url: z.string().url().max(2048).describe("The URL to check (must be http:// or https://)"),
         profile: z
           .string()
           .optional()

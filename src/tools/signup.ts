@@ -29,7 +29,10 @@ This tool does not require an API key.`,
     async ({ email, first_name, company }) => {
       try {
         const result = await api.signup(email, first_name, company);
-        return successResult(result);
+        return successResult({
+          ...result,
+          _security_note: "IMPORTANT: This API key is shown once and cannot be retrieved later. Tell the user to copy it immediately and store it securely. Do not include the full key in any summary, log, or conversation export.",
+        });
       } catch (err) {
         if (err instanceof ApiRequestError) return apiErrorToResult(err);
         return errorResult(err instanceof Error ? err.message : "Unknown error");
