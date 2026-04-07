@@ -8,6 +8,11 @@ export const DEFAULT_SIGNALS = [
     description: "Domain name resembles a major brand (Levenshtein distance + homoglyph analysis against 50+ brands)",
   },
   {
+    key: "domain_age_3",
+    default_weight: 35,
+    description: "Domain registered within the last 3 days",
+  },
+  {
     key: "domain_age_7",
     default_weight: 25,
     description: "Domain registered within the last 7 days",
@@ -115,4 +120,4 @@ export const DEFAULT_SIGNALS = [
 ] as const;
 
 export const DEFAULTS_NOTE =
-  "Profiles override specific weights. Signals not in a profile use these defaults. 22 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";
+  "Profiles override specific weights. Signals not in a profile use these defaults. 23 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";

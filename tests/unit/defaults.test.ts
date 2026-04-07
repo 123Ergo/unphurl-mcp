@@ -5,9 +5,10 @@
 import { describe, it, expect } from "vitest";
 import { DEFAULT_SIGNALS, DEFAULTS_NOTE } from "../../src/defaults.js";
 
-// The 22 configurable signal keys (suspicious_tld is internal only)
+// The 23 configurable signal keys (suspicious_tld is internal only)
 const EXPECTED_KEYS = [
   "brand_impersonation",
+  "domain_age_3",
   "domain_age_7",
   "domain_age_30",
   "domain_age_90",
@@ -32,11 +33,11 @@ const EXPECTED_KEYS = [
 ];
 
 describe("DEFAULT_SIGNALS", () => {
-  it("has exactly 22 entries", () => {
-    expect(DEFAULT_SIGNALS).toHaveLength(22);
+  it("has exactly 23 entries", () => {
+    expect(DEFAULT_SIGNALS).toHaveLength(23);
   });
 
-  it("contains all 22 expected weight keys", () => {
+  it("contains all 23 expected weight keys", () => {
     const actualKeys = DEFAULT_SIGNALS.map((s) => s.key);
     for (const key of EXPECTED_KEYS) {
       expect(actualKeys).toContain(key);
