@@ -17,6 +17,7 @@ import { registerHistoryTool } from "./tools/history.js";
 
 const DEFAULT_API_URL = "https://api.unphurl.com";
 
+// Backward compatibility: accept LINKCHECK_* env vars for users migrating from LinkCheck
 const apiKey = process.env.UNPHURL_API_KEY || process.env.LINKCHECK_API_KEY || undefined;
 const apiUrl = process.env.UNPHURL_API_URL || process.env.LINKCHECK_API_URL || DEFAULT_API_URL;
 

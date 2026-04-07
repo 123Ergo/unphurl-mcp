@@ -37,7 +37,7 @@ Duplicate URLs in the list are automatically deduplicated (processed once, charg
 Use the "profile" parameter to score all results with custom weights.`,
       inputSchema: {
         urls: z
-          .array(z.string().max(2048))
+          .array(z.string().url().max(2048))
           .min(1)
           .max(200)
           .describe("List of URLs to check (maximum 200 per call)"),

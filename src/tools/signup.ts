@@ -21,7 +21,7 @@ Once the user has their API key, they need to add it to their MCP server configu
 
 This tool does not require an API key.`,
       inputSchema: {
-        email: z.string().describe("Email address for the account"),
+        email: z.string().email().describe("Email address for the account"),
         first_name: z.string().describe("First name (used for personalized emails)"),
         company: z.string().optional().describe("Company name (optional)"),
       },
