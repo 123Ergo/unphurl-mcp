@@ -50,6 +50,14 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 | `purchase` | Purchase credits (returns Stripe Checkout URL) | Yes |
 | `check_history` | View recent URL check history | Yes |
 
+## Filtering batch results
+
+After a batch check with `check_urls`, ask your AI to filter the results:
+
+> "Check these 500 URLs. Give me two lists: the clean ones (score under 25) and the flagged ones (score 50 or higher). Export both as CSV."
+
+The agent gets the batch results, filters by score, and outputs the lists you need. No code, no jq, no scripting. This is one of the advantages of the MCP path: your AI is the filter.
+
 ## Companion skill
 
 The `check-url-safety` skill teaches your AI to proactively check URLs before following or recommending them.
