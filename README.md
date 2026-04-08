@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="unphurl-logo.png" alt="Unphurl" width="80" />
+</p>
+
 # @unphurl/mcp-server
 
 Domain intelligence for AI tools. Unphurl analyses URLs across seven dimensions (redirect behaviour, brand impersonation, domain intelligence via RDAP, SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment) and returns structured signals with a configurable risk score. 22 scoring weights, all customizable per use case. One URL in, structured intelligence out. Your agent decides what to do with it.
