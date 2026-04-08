@@ -10,7 +10,7 @@ Every new account gets **3 free pipeline check credits** to test with real URLs.
 
 ### 1. Add to your MCP configuration
 
-Add to your `.mcp.json` (Claude Code, Cursor, Windsurf, etc.):
+Add to your `.mcp.json` (Claude Code, Claude Desktop, Claude Cowork, ChatGPT desktop, Cursor, Windsurf, or any MCP-compatible tool):
 
 ```json
 {
@@ -40,7 +40,7 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 |------|-------------|------|
 | `signup` | Create a new account, get an API key | No |
 | `check_url` | Check a single URL for security/quality signals | Yes |
-| `check_urls` | Batch check up to 200 URLs (handles async polling automatically) | Yes |
+| `check_urls` | Batch check up to 500 URLs (handles async polling automatically) | Yes |
 | `list_profiles` | List custom scoring profiles | Yes |
 | `create_profile` | Create or update a scoring profile | Yes |
 | `delete_profile` | Delete a scoring profile | Yes |
@@ -49,6 +49,12 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 | `get_pricing` | Show available credit packages and pricing | No |
 | `purchase` | Purchase credits (returns Stripe Checkout URL) | Yes |
 | `check_history` | View recent URL check history | Yes |
+
+## How billing works
+
+- A positive credit balance is required for all check requests, even for free lookups (Tranco and cached domains). Free lookups don't deduct credits, but you need at least 1 credit on your account.
+- Batch checks (`check_urls`): credits for all unknown URLs are deducted upfront. If you don't have enough credits for every unknown in the batch, the entire batch is rejected. You still get a smart summary showing how many URLs are known, cached, and unknown, and exactly how many credits you need to purchase.
+- Failed pipeline checks are automatically refunded. If the pipeline fails completely and returns zero signals, the credit is restored. Partial results (some signals succeeded, some timed out) are not refunded since you received intelligence.
 
 ## Filtering batch results
 
