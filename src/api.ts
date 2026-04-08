@@ -16,6 +16,7 @@ import type {
   HistoryResponse,
   PricingResponse,
   PurchaseResponse,
+  StatsResponse,
 } from "./types.js";
 
 interface HttpResponse {
@@ -194,6 +195,10 @@ export class UnphurlAPI {
     return this.doRequest<PurchaseResponse>("POST", "/v1/purchase", {
       package: packageId,
     });
+  }
+
+  async stats(): Promise<StatsResponse> {
+    return this.doRequest<StatsResponse>("GET", "/v1/account/stats");
   }
 }
 

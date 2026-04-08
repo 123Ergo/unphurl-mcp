@@ -14,6 +14,7 @@ import { registerBatchTool } from "./tools/batch.js";
 import { registerProfileTools } from "./tools/profiles.js";
 import { registerBillingTools } from "./tools/billing.js";
 import { registerHistoryTool } from "./tools/history.js";
+import { registerStatsTool } from "./tools/stats.js";
 
 const DEFAULT_API_URL = "https://api.unphurl.com";
 
@@ -28,13 +29,14 @@ const server = new McpServer({
   version: "0.1.0",
 });
 
-// Register all 11 tools across 6 modules
+// Register all 12 tools across 7 modules
 registerSignupTool(server, api);
 registerCheckTool(server, api);
 registerBatchTool(server, api);
 registerProfileTools(server, api); // list_profiles, create_profile, delete_profile, show_defaults
 registerBillingTools(server, api); // get_balance, get_pricing, purchase
 registerHistoryTool(server, api);
+registerStatsTool(server, api);
 
 // Start the server on stdio
 const transport = new StdioServerTransport();

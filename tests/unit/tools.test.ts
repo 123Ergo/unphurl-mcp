@@ -10,6 +10,7 @@ import { registerBatchTool } from "../../src/tools/batch.js";
 import { registerProfileTools } from "../../src/tools/profiles.js";
 import { registerBillingTools } from "../../src/tools/billing.js";
 import { registerHistoryTool } from "../../src/tools/history.js";
+import { registerStatsTool } from "../../src/tools/stats.js";
 
 // Capture tool registrations via a mock server
 interface ToolRegistration {
@@ -41,6 +42,7 @@ const mockApi = {
   history: vi.fn(),
   pricing: vi.fn(),
   purchase: vi.fn(),
+  stats: vi.fn(),
 } as any;
 
 beforeAll(() => {
@@ -50,11 +52,12 @@ beforeAll(() => {
   registerProfileTools(mockServer as any, mockApi);
   registerBillingTools(mockServer as any, mockApi);
   registerHistoryTool(mockServer as any, mockApi);
+  registerStatsTool(mockServer as any, mockApi);
 });
 
 describe("tool registration", () => {
-  it("registers exactly 11 tools", () => {
-    expect(registeredTools.size).toBe(11);
+  it("registers exactly 12 tools", () => {
+    expect(registeredTools.size).toBe(12);
   });
 
   const EXPECTED_TOOLS = [
@@ -69,9 +72,10 @@ describe("tool registration", () => {
     "get_pricing",
     "purchase",
     "check_history",
+    "get_stats",
   ];
 
-  it("registers all 11 expected tool names", () => {
+  it("registers all 12 expected tool names", () => {
     for (const name of EXPECTED_TOOLS) {
       expect(registeredTools.has(name)).toBe(true);
     }
@@ -90,6 +94,7 @@ describe("tool registration", () => {
     expect(typeof registerProfileTools).toBe("function");
     expect(typeof registerBillingTools).toBe("function");
     expect(typeof registerHistoryTool).toBe("function");
+    expect(typeof registerStatsTool).toBe("function");
   });
 });
 
@@ -138,6 +143,12 @@ describe("tool descriptions", () => {
   it("get_balance mentions 'credits'", () => {
     const tool = registeredTools.get("get_balance")!;
     expect(tool.description.toLowerCase()).toContain("credit");
+  });
+
+  it("get_stats mentions 'usage' and 'statistics'", () => {
+    const tool = registeredTools.get("get_stats")!;
+    expect(tool.description.toLowerCase()).toContain("usage");
+    expect(tool.description.toLowerCase()).toContain("statistic");
   });
 });
 

@@ -189,3 +189,22 @@ export interface PurchaseResponse {
     price: string;
   };
 }
+
+export interface StatsResponse {
+  usage: {
+    total_urls_submitted: number;
+    tranco_lookups: number;
+    cache_lookups: number;
+    pipeline_checks_run: number;
+    free_rate_pct: number;
+  };
+  scoring: {
+    checks_above_50: number;
+    checks_above_75: number;
+  };
+  account: {
+    credits_remaining: number;
+    total_credits_purchased: number;
+    last_active_at: string;
+  };
+}
