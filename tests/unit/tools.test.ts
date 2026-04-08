@@ -99,9 +99,9 @@ describe("tool descriptions", () => {
     expect(tool.description).toContain("seven dimensions");
   });
 
-  it("check_urls mentions '200' max batch size and '5-minute timeout'", () => {
+  it("check_urls mentions '500' max batch size and '5-minute timeout'", () => {
     const tool = registeredTools.get("check_urls")!;
-    expect(tool.description).toContain("200");
+    expect(tool.description).toContain("500");
     expect(tool.description).toMatch(/5.minute/i);
   });
 

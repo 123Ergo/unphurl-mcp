@@ -28,7 +28,7 @@ Each URL is analysed across seven dimensions: redirect behaviour, brand imperson
 
 If the timeout is reached before all results are complete, returns whatever is available with a clear message indicating which URLs are still processing. The user can check results later via check_history.
 
-Maximum 200 URLs per call. For larger datasets, call this tool multiple times with chunks of up to 200 URLs.
+Maximum 500 URLs per call. For larger datasets, call this tool multiple times with chunks of up to 500 URLs.
 
 Billing: Same as check_url. Known and cached domains are free. Only unknown domains running through the full pipeline cost 1 credit each. The summary shows pipeline_checks_charged (the actual number of credits consumed). If you don't have enough credits for the unknowns in the batch, the entire batch is rejected with a 402 error telling you exactly how many credits are needed.
 
@@ -39,8 +39,8 @@ Use the "profile" parameter to score all results with custom weights.`,
         urls: z
           .array(z.string().url().max(2048))
           .min(1)
-          .max(200)
-          .describe("List of URLs to check (maximum 200 per call)"),
+          .max(500)
+          .describe("List of URLs to check (maximum 500 per call)"),
         profile: z
           .string()
           .optional()
