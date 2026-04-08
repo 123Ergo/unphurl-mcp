@@ -15,7 +15,7 @@ export function registerSignupTool(server: McpServer, api: UnphurlAPI): void {
 
 After signup, the user must check their email and click the verification link. The API key won't work for URL checks until the email is verified. Verification link expires after 24 hours.
 
-The account starts with zero pipeline check credits. Known domain lookups (google.com, github.com, etc.) and cached domain lookups are always free. To check unknown domains through the full analysis pipeline, the user needs to purchase credits via the "purchase" tool.
+The account starts with 3 free pipeline check credits so the user can test with real URLs. Known domain lookups (google.com, github.com, etc.) and cached domain lookups are always free. To check more unknown domains through the full analysis pipeline, the user can purchase credits via the "purchase" tool.
 
 Once the user has their API key, they need to add it to their MCP server configuration as UNPHURL_API_KEY.
 
