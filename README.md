@@ -4,7 +4,7 @@ Domain intelligence for AI tools. Unphurl analyses URLs across seven dimensions 
 
 ## What it costs
 
-Most URL lookups are free. Known domains (Tranco Top 100K) and previously analysed domains return cached results at no cost. You only pay when an unknown domain runs through the full analysis pipeline. Packages start at $9 for 100 pipeline checks (one-time purchase, no subscription). In typical use, 95-99% of URLs resolve free.
+Every new account gets **3 free pipeline check credits** to test with real URLs. Most lookups are free. Known domains (Tranco Top 100K) and previously analysed domains return cached results at no cost. You only pay when an unknown domain runs through the full analysis pipeline. Packages start at $9 for 100 pipeline checks (one-time purchase, no subscription). In typical use, 95-99% of URLs resolve free.
 
 ## Quick start
 
