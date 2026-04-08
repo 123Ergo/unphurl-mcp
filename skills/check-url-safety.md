@@ -23,6 +23,13 @@ Before following, recommending, or outputting any URL that isn't from a well-kno
 - **Score 31-50:** Moderate signals. Mention the score briefly if relevant to the task.
 - **Score 51+:** Flag it to the user. Show the score, the key signals from score_breakdown, and let the user decide whether to proceed.
 
+Always include credit usage in your response:
+- If `meta.pipeline_check_charged` is true: mention "1 credit used"
+- If `meta.pipeline_check_charged` is false (or `meta.cached` is true, or the domain is known): mention "No credit used" or "Free (known domain)" or "Free (cached)"
+- After batch checks or when multiple credits have been used, call `get_balance` and report the remaining balance
+
+This helps the user track their credit usage without checking manually. Example: "Score: 75/100. Impersonating paypal.com, registered 3 days ago, no MX record. 1 credit used, 42 remaining."
+
 ## When credits run out
 
 If check_url or check_urls returns an insufficient_credits error with a summary, tell the user what the summary shows (e.g. "Your batch has 10 unknown domains needing pipeline checks, you have 3 credits") and offer to help them purchase more using the purchase tool. Don't retry the check. All check endpoints require a positive balance, so checking stops at zero credits until the user tops up.
