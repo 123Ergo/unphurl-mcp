@@ -66,12 +66,14 @@ The agent gets the batch results, filters by score, and outputs the lists you ne
 
 ## Companion skill
 
-The `check-url-safety` skill teaches your AI to proactively check URLs before following or recommending them.
+The `check-url-safety` skill teaches your AI to proactively check URLs before following or recommending them, without being asked.
 
-To install, copy `skills/check-url-safety.md` to your skills directory:
+**If you use Claude Cowork or Claude Desktop:** Just ask Claude: "Install the Unphurl URL safety skill." Claude can set it up for you.
+
+**If you use Claude Code, Cursor, or another developer tool:**
 
 ```bash
-# Claude Code
+# Global (all projects)
 cp node_modules/@unphurl/mcp-server/skills/check-url-safety.md ~/.claude/skills/
 
 # Or for a specific project
