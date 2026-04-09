@@ -75,7 +75,7 @@ function request(
 }
 
 // Paths that don't require an API key
-const PUBLIC_PATHS = ["/v1/signup", "/v1/pricing"];
+const PUBLIC_PATHS = ["/v1/signup", "/v1/pricing", "/v1/verify/resend"];
 
 export class UnphurlAPI {
   private baseUrl: string;
@@ -199,6 +199,10 @@ export class UnphurlAPI {
 
   async stats(): Promise<StatsResponse> {
     return this.doRequest<StatsResponse>("GET", "/v1/account/stats");
+  }
+
+  async resendVerification(email: string): Promise<{ message: string }> {
+    return this.doRequest<{ message: string }>("POST", "/v1/verify/resend", { email });
   }
 }
 

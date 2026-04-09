@@ -4,7 +4,7 @@
 
 import { describe, it, expect, beforeAll } from "vitest";
 import { vi } from "vitest";
-import { registerSignupTool } from "../../src/tools/signup.js";
+import { registerSignupTools } from "../../src/tools/signup.js";
 import { registerCheckTool } from "../../src/tools/check.js";
 import { registerBatchTool } from "../../src/tools/batch.js";
 import { registerProfileTools } from "../../src/tools/profiles.js";
@@ -43,10 +43,11 @@ const mockApi = {
   pricing: vi.fn(),
   purchase: vi.fn(),
   stats: vi.fn(),
+  resendVerification: vi.fn(),
 } as any;
 
 beforeAll(() => {
-  registerSignupTool(mockServer as any, mockApi);
+  registerSignupTools(mockServer as any, mockApi);
   registerCheckTool(mockServer as any, mockApi);
   registerBatchTool(mockServer as any, mockApi);
   registerProfileTools(mockServer as any, mockApi);
@@ -56,12 +57,13 @@ beforeAll(() => {
 });
 
 describe("tool registration", () => {
-  it("registers exactly 12 tools", () => {
-    expect(registeredTools.size).toBe(12);
+  it("registers exactly 13 tools", () => {
+    expect(registeredTools.size).toBe(13);
   });
 
   const EXPECTED_TOOLS = [
     "signup",
+    "resend_verification",
     "check_url",
     "check_urls",
     "list_profiles",
@@ -75,7 +77,7 @@ describe("tool registration", () => {
     "get_stats",
   ];
 
-  it("registers all 12 expected tool names", () => {
+  it("registers all 13 expected tool names", () => {
     for (const name of EXPECTED_TOOLS) {
       expect(registeredTools.has(name)).toBe(true);
     }
@@ -88,7 +90,7 @@ describe("tool registration", () => {
   });
 
   it("all registration functions exist and are callable", () => {
-    expect(typeof registerSignupTool).toBe("function");
+    expect(typeof registerSignupTools).toBe("function");
     expect(typeof registerCheckTool).toBe("function");
     expect(typeof registerBatchTool).toBe("function");
     expect(typeof registerProfileTools).toBe("function");
@@ -129,9 +131,16 @@ describe("tool descriptions", () => {
     expect(tool.description.toLowerCase()).toContain("scoring signal");
   });
 
-  it("signup mentions 'UNPHURL_API_KEY'", () => {
+  it("signup mentions 'UNPHURL_API_KEY' and 'resend_verification'", () => {
     const tool = registeredTools.get("signup")!;
     expect(tool.description).toContain("UNPHURL_API_KEY");
+    expect(tool.description).toContain("resend_verification");
+  });
+
+  it("resend_verification mentions rate limiting and no API key", () => {
+    const tool = registeredTools.get("resend_verification")!;
+    expect(tool.description.toLowerCase()).toContain("rate limit");
+    expect(tool.description.toLowerCase()).toContain("does not require an api key");
   });
 
   it("purchase mentions Stripe and browser", () => {

@@ -8,7 +8,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { UnphurlAPI } from "./api.js";
-import { registerSignupTool } from "./tools/signup.js";
+import { registerSignupTools } from "./tools/signup.js";
 import { registerCheckTool } from "./tools/check.js";
 import { registerBatchTool } from "./tools/batch.js";
 import { registerProfileTools } from "./tools/profiles.js";
@@ -29,8 +29,8 @@ const server = new McpServer({
   version: "0.1.0",
 });
 
-// Register all 12 tools across 7 modules
-registerSignupTool(server, api);
+// Register all 13 tools across 7 modules
+registerSignupTools(server, api); // signup, resend_verification
 registerCheckTool(server, api);
 registerBatchTool(server, api);
 registerProfileTools(server, api); // list_profiles, create_profile, delete_profile, show_defaults
