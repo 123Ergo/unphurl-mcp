@@ -4,7 +4,7 @@
 
 # @unphurl/mcp-server
 
-Domain intelligence for AI tools. Unphurl analyses URLs across seven dimensions (redirect behaviour, brand impersonation, domain intelligence via RDAP, SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment) and returns structured signals with a configurable risk score. 22 scoring weights, all customizable per use case. One URL in, structured intelligence out. Your agent decides what to do with it.
+Domain intelligence for AI tools. Unphurl analyses URLs across seven dimensions (redirect behaviour, brand impersonation, domain intelligence via RDAP, SSL/TLS validity, parked domain detection, URL structural analysis, and DNS enrichment) and returns structured signals with a configurable risk score. 23 scoring weights, all customizable per use case. One URL in, structured intelligence out. Your agent decides what to do with it.
 
 ## What it costs
 
@@ -48,7 +48,7 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 | `list_profiles` | List custom scoring profiles | Yes |
 | `create_profile` | Create or update a scoring profile | Yes |
 | `delete_profile` | Delete a scoring profile | Yes |
-| `show_defaults` | Show all 22 scoring signals with default weights | No |
+| `show_defaults` | Show all 23 scoring signals with default weights | No |
 | `get_balance` | Check pipeline check credit balance | Yes |
 | `get_stats` | View usage statistics and score threshold counts | Yes |
 | `get_pricing` | Show available credit packages and pricing | No |
