@@ -1,5 +1,5 @@
 // Unit tests for MCP tool registration and descriptions
-// Verifies all 11 tools are registered with correct metadata
+// Verifies all 13 tools are registered with correct metadata
 // No server required — uses a mock McpServer to capture registrations
 
 import { describe, it, expect, beforeAll } from "vitest";

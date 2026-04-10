@@ -5,7 +5,7 @@ export const DEFAULT_SIGNALS = [
   {
     key: "brand_impersonation",
     default_weight: 40,
-    description: "Domain name resembles a major brand (Levenshtein distance + homoglyph analysis against 50+ brands)",
+    description: "Domain name resembles a major brand (Levenshtein distance + homoglyph analysis against 150+ brands)",
   },
   {
     key: "domain_age_3",

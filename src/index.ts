@@ -1,5 +1,5 @@
 // Unphurl MCP Server — domain intelligence for AI tools
-// Wraps the Unphurl API as 11 MCP tools for Claude Code, Cursor, Windsurf, etc.
+// Wraps the Unphurl API as 13 MCP tools for Claude Code, Cursor, Windsurf, etc.
 //
 // Configuration:
 //   UNPHURL_API_KEY  — your API key (optional for signup/pricing/defaults)

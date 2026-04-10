@@ -43,6 +43,7 @@ For local development or staging, set `UNPHURL_API_URL` in the env block. Defaul
 | Tool | Description | Auth |
 |------|-------------|------|
 | `signup` | Create a new account, get an API key | No |
+| `resend_verification` | Resend verification email (rate limited 3/hour) | Yes |
 | `check_url` | Check a single URL for security/quality signals | Yes |
 | `check_urls` | Batch check up to 500 URLs (handles async polling automatically) | Yes |
 | `list_profiles` | List custom scoring profiles | Yes |

@@ -1,5 +1,5 @@
 // Unit tests for MCP default scoring signals
-// Verifies all 22 configurable signals are present with correct structure
+// Verifies all 23 configurable signals are present with correct structure
 // No server required — tests hardcoded constants
 
 import { describe, it, expect } from "vitest";

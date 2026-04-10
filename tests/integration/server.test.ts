@@ -67,9 +67,9 @@ describe("MCP initialisation", () => {
 });
 
 describe("tools/list", () => {
-  it("returns all 11 tools", async () => {
+  it("returns all 13 tools", async () => {
     const response = await client.listTools();
-    expect(response.tools).toHaveLength(11);
+    expect(response.tools).toHaveLength(13);
 
     const toolNames = response.tools.map((t) => t.name).sort();
     const expected = [
@@ -80,8 +80,10 @@ describe("tools/list", () => {
       "delete_profile",
       "get_balance",
       "get_pricing",
+      "get_stats",
       "list_profiles",
       "purchase",
+      "resend_verification",
       "show_defaults",
       "signup",
     ];
@@ -90,14 +92,14 @@ describe("tools/list", () => {
 });
 
 describe("show_defaults (no API key needed)", () => {
-  it("returns 22 signals", async () => {
+  it("returns 23 signals", async () => {
     const result = await client.callTool({ name: "show_defaults", arguments: {} });
     expect(result.content).toHaveLength(1);
 
     const textContent = result.content[0];
     expect(textContent).toHaveProperty("type", "text");
     const parsed = JSON.parse((textContent as { type: "text"; text: string }).text);
-    expect(parsed.signals).toHaveLength(22);
+    expect(parsed.signals).toHaveLength(23);
 
     // Verify structure of each signal
     for (const signal of parsed.signals) {
