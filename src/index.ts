@@ -26,7 +26,7 @@ const api = new UnphurlAPI(apiUrl, apiKey);
 
 const server = new McpServer({
   name: "unphurl",
-  version: "0.1.0",
+  version: "0.1.1",
 });
 
 // Register all 13 tools across 7 modules
