@@ -1,6 +1,6 @@
 {
   "name": "@unphurl/mcp-server",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Unphurl domain intelligence MCP server — check URLs for security and quality signals from any AI tool",
   "type": "module",
   "bin": {
