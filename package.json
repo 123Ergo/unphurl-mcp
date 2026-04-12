@@ -1,6 +1,7 @@
 {
   "name": "@unphurl/mcp-server",
   "version": "0.1.4",
+  "mcpName": "io.github.123Ergo/unphurl",
   "description": "Unphurl domain intelligence MCP server — check URLs for security and quality signals from any AI tool",
   "type": "module",
   "bin": {
