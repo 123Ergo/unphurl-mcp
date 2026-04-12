@@ -14,7 +14,7 @@ Works with Claude Code, Claude Desktop, Claude Cowork, ChatGPT desktop, Cursor, 
 
 ## What it costs
 
-Every new account gets **3 free pipeline check credits**. Most lookups are free. Known domains (Tranco Top 100K) and previously analysed domains return cached results at no cost. You only pay when an unknown domain runs through the full pipeline.
+Every new account gets **20 free pipeline check credits**. Most lookups are free. Known domains (Tranco Top 100K) and previously analysed domains return cached results at no cost. You only pay when an unknown domain runs through the full pipeline.
 
 | Package | Credits | Price | Per check |
 |---------|---------|-------|-----------|

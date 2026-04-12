@@ -32,7 +32,7 @@ This helps the user track their credit usage without checking manually. Example:
 
 ## When credits run out
 
-If check_url or check_urls returns an insufficient_credits error with a summary, tell the user what the summary shows (e.g. "Your batch has 10 unknown domains needing pipeline checks, you have 3 credits") and offer to help them purchase more using the purchase tool. Don't retry the check. All check endpoints require a positive balance, so checking stops at zero credits until the user tops up.
+If check_url or check_urls returns an insufficient_credits error with a summary, tell the user what the summary shows (e.g. "Your batch has 10 unknown domains needing pipeline checks, you have 20 credits") and offer to help them purchase more using the purchase tool. Don't retry the check. All check endpoints require a positive balance, so checking stops at zero credits until the user tops up.
 
 ## What not to check
 
