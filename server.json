@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.123Ergo/unphurl",
+  "title": "Unphurl",
+  "description": "URL intelligence for AI agents and developers. Structured signals on all URLs. 16 tools, 23 signal weights. 20 free checks.",
+  "repository": {
+    "url": "https://github.com/123Ergo/unphurl-mcp",
+    "source": "github"
+  },
+  "version": "0.2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@unphurl/mcp-server",
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Your Unphurl API key (get one at unphurl.com or via the signup tool)",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "UNPHURL_API_KEY"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.unphurl.com/mcp"
+    }
+  ]
+}
