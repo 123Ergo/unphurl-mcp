@@ -6,7 +6,7 @@
  \___/|_| \_|_|   |_| |_|\___/|_| \_\_____|
 ```
 
-**URL intelligence for AI tools. 13 MCP tools. 23 signals. 7 dimensions.**
+**URL intelligence for AI agents and developers. 16 MCP tools. 23 signals. 7 dimensions.**
 
 Give your AI agent eyes for URLs. Unphurl analyses any URL across 7 dimensions (redirect behaviour, brand impersonation, domain age, SSL/TLS, parked detection, URL structure, DNS enrichment) and returns structured signals with a configurable 0-100 risk score. Signals, not verdicts. Your agent decides what to do with them.
 
@@ -79,7 +79,7 @@ Every check returns signals across **7 dimensions**:
 
 Every signal is business intelligence. Domain age tells you how established a company is. No MX record means they can't receive email. Expiring domains mean a business might be shutting down. Combined with your AI's ability to process in bulk and output to spreadsheets, it becomes a lightweight due diligence engine.
 
-## 13 Tools
+## 16 Tools
 
 | Tool | What it does | Auth |
 |------|-------------|------|
@@ -96,6 +96,9 @@ Every signal is business intelligence. Domain age tells you how established a co
 | `get_pricing` | Show available credit packages and pricing | No |
 | `purchase` | Purchase credits (returns Stripe Checkout URL) | Yes |
 | `check_history` | View recent URL check history | Yes |
+| `list_allowlist` | List trusted domains that suppress scoring amplifiers | Yes |
+| `add_to_allowlist` | Add domains to your trusted allowlist (up to 100 per request) | Yes |
+| `remove_from_allowlist` | Remove domains from your trusted allowlist | Yes |
 
 ## Power moves
 

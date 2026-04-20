@@ -1,8 +1,8 @@
 {
   "name": "@unphurl/mcp-server",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "mcpName": "io.github.123Ergo/unphurl",
-  "description": "Unphurl domain intelligence MCP server — check URLs for security and quality signals from any AI tool",
+  "description": "URL intelligence for AI agents and developers. Structured signals on all URLs. 16 tools, 23 signal weights. 20 free checks.",
   "type": "module",
   "bin": {
     "unphurl-mcp-server": "./dist/index.js"
@@ -25,12 +25,12 @@
   "keywords": [
     "mcp",
     "unphurl",
+    "url-intelligence",
     "domain-intelligence",
-    "url-safety",
-    "phishing-detection",
     "ai-tools",
     "claude",
-    "cursor"
+    "cursor",
+    "windsurf"
   ],
   "author": "Erik Goldhar",
   "license": "MIT",

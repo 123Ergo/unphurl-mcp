@@ -60,12 +60,12 @@ export const DEFAULT_SIGNALS = [
   {
     key: "compound",
     default_weight: 10,
-    description: "3 or more signals detected together (amplifier for multiple weak signals)",
+    description: "3 or more signals detected together with at least one high-severity anchor (domain ≤30 days, 5+ redirects, invalid certificate, parked, or incomplete chain). The score breakdown names which signals contributed.",
   },
   {
-    key: "phishing_floor",
+    key: "brand_impersonation_floor",
     default_weight: 80,
-    description: "Minimum score applied when brand impersonation is detected alongside any other signal",
+    description: "Minimum score applied when brand impersonation is confirmed alongside a meaningful secondary signal. Structural signals like url_long or subdomain_excessive alone do not qualify.",
   },
   {
     key: "url_long",
@@ -100,7 +100,7 @@ export const DEFAULT_SIGNALS = [
   {
     key: "tld_redirect_change",
     default_weight: 5,
-    description: "TLD changed between input URL and final destination",
+    description: "TLD changed on redirect to a suspicious final TLD (e.g. .com→.xyz fires; .com→.ca does not)",
   },
   {
     key: "expiring_soon",

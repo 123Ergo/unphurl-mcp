@@ -17,6 +17,7 @@ import type {
   PricingResponse,
   PurchaseResponse,
   StatsResponse,
+  AllowlistResponse,
 } from "./types.js";
 
 interface HttpResponse {
@@ -203,6 +204,18 @@ export class UnphurlAPI {
 
   async resendVerification(email: string): Promise<{ message: string }> {
     return this.doRequest<{ message: string }>("POST", "/v1/verify/resend", { email });
+  }
+
+  async listAllowlist(): Promise<AllowlistResponse> {
+    return this.doRequest<AllowlistResponse>("GET", "/v1/allowlist");
+  }
+
+  async addToAllowlist(domains: string[]): Promise<AllowlistResponse> {
+    return this.doRequest<AllowlistResponse>("POST", "/v1/allowlist", { domains });
+  }
+
+  async removeFromAllowlist(domains: string[]): Promise<AllowlistResponse> {
+    return this.doRequest<AllowlistResponse>("DELETE", "/v1/allowlist", { domains });
   }
 }
 

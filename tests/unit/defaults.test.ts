@@ -19,7 +19,7 @@ const EXPECTED_KEYS = [
   "chain_incomplete",
   "parked",
   "compound",
-  "phishing_floor",
+  "brand_impersonation_floor",
   "url_long",
   "path_deep",
   "subdomain_excessive",
@@ -73,7 +73,7 @@ describe("DEFAULT_SIGNALS", () => {
     const byKey = new Map(DEFAULT_SIGNALS.map((s) => [s.key, s]));
     expect(byKey.get("brand_impersonation")?.default_weight).toBe(40);
     expect(byKey.get("domain_age_7")?.default_weight).toBe(25);
-    expect(byKey.get("phishing_floor")?.default_weight).toBe(80);
+    expect(byKey.get("brand_impersonation_floor")?.default_weight).toBe(80);
     expect(byKey.get("no_mx_record")?.default_weight).toBe(5);
     expect(byKey.get("compound")?.default_weight).toBe(10);
   });

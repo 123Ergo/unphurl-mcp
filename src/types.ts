@@ -24,6 +24,7 @@ export interface DomainSignals {
   has_mx_record: boolean | null;
   is_parked: boolean;
   is_known: boolean;
+  is_allowlisted: boolean;
   content_type: string | null;
 }
 
@@ -188,6 +189,16 @@ export interface PurchaseResponse {
     credits: number;
     price: string;
   };
+}
+
+export interface AllowlistResponse {
+  domains?: string[];
+  count?: number;
+  limit?: number;
+  added?: number;
+  skipped?: number;
+  total?: number;
+  removed?: number;
 }
 
 export interface StatsResponse {

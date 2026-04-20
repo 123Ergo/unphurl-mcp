@@ -72,7 +72,7 @@ See the Unphurl API documentation for all 19 use case weight examples.`,
         weights: z
           .record(z.string(), z.number().int().min(0).max(1000))
           .describe(
-            "Custom weights for scoring signals. Only include signals you want to override. Available signals: brand_impersonation (default 40), domain_age_3 (35), domain_age_7 (25), domain_age_30 (15), domain_age_90 (5), ssl_invalid (10), http_only (5), redirects_3 (10), redirects_5 (25), chain_incomplete (15), parked (10), compound (10), phishing_floor (80), url_long (3), path_deep (3), subdomain_excessive (5), domain_entropy_high (5), url_contains_ip (10), encoded_hostname (5), tld_redirect_change (5), expiring_soon (10), domain_status_bad (15), no_mx_record (5)."
+            "Custom weights for scoring signals. Only include signals you want to override. Available signals: brand_impersonation (default 40), domain_age_3 (35), domain_age_7 (25), domain_age_30 (15), domain_age_90 (5), ssl_invalid (10), http_only (5), redirects_3 (10), redirects_5 (25), chain_incomplete (15), parked (10), compound (10), brand_impersonation_floor (80), url_long (3), path_deep (3), subdomain_excessive (5), domain_entropy_high (5), url_contains_ip (10), encoded_hostname (5), tld_redirect_change (5), expiring_soon (10), domain_status_bad (15), no_mx_record (5)."
           ),
       },
     },

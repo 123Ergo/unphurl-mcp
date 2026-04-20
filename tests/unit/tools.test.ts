@@ -1,5 +1,5 @@
 // Unit tests for MCP tool registration and descriptions
-// Verifies all 13 tools are registered with correct metadata
+// Verifies all 16 tools are registered with correct metadata
 // No server required — uses a mock McpServer to capture registrations
 
 import { describe, it, expect, beforeAll } from "vitest";
@@ -11,6 +11,7 @@ import { registerProfileTools } from "../../src/tools/profiles.js";
 import { registerBillingTools } from "../../src/tools/billing.js";
 import { registerHistoryTool } from "../../src/tools/history.js";
 import { registerStatsTool } from "../../src/tools/stats.js";
+import { registerAllowlistTools } from "../../src/tools/allowlist.js";
 
 // Capture tool registrations via a mock server
 interface ToolRegistration {
@@ -44,6 +45,9 @@ const mockApi = {
   purchase: vi.fn(),
   stats: vi.fn(),
   resendVerification: vi.fn(),
+  listAllowlist: vi.fn(),
+  addToAllowlist: vi.fn(),
+  removeFromAllowlist: vi.fn(),
 } as any;
 
 beforeAll(() => {
@@ -54,11 +58,12 @@ beforeAll(() => {
   registerBillingTools(mockServer as any, mockApi);
   registerHistoryTool(mockServer as any, mockApi);
   registerStatsTool(mockServer as any, mockApi);
+  registerAllowlistTools(mockServer as any, mockApi);
 });
 
 describe("tool registration", () => {
-  it("registers exactly 13 tools", () => {
-    expect(registeredTools.size).toBe(13);
+  it("registers exactly 16 tools", () => {
+    expect(registeredTools.size).toBe(16);
   });
 
   const EXPECTED_TOOLS = [
@@ -75,9 +80,12 @@ describe("tool registration", () => {
     "purchase",
     "check_history",
     "get_stats",
+    "list_allowlist",
+    "add_to_allowlist",
+    "remove_from_allowlist",
   ];
 
-  it("registers all 13 expected tool names", () => {
+  it("registers all 16 expected tool names", () => {
     for (const name of EXPECTED_TOOLS) {
       expect(registeredTools.has(name)).toBe(true);
     }
@@ -97,6 +105,7 @@ describe("tool registration", () => {
     expect(typeof registerBillingTools).toBe("function");
     expect(typeof registerHistoryTool).toBe("function");
     expect(typeof registerStatsTool).toBe("function");
+    expect(typeof registerAllowlistTools).toBe("function");
   });
 });
 
@@ -119,7 +128,7 @@ describe("tool descriptions", () => {
     // The mock captures the raw zod schema; extract the description from the weights field
     const weightsSchema = tool.inputSchema.weights;
     const weightsDesc = weightsSchema?.description ?? "";
-    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "phishing_floor"];
+    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "brand_impersonation_floor"];
     for (const signal of keySignals) {
       expect(weightsDesc).toContain(signal);
     }
