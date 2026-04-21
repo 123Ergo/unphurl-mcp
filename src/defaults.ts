@@ -78,9 +78,14 @@ export const DEFAULT_SIGNALS = [
     description: "URL path has more than 4 segments",
   },
   {
+    key: "subdomain_deep",
+    default_weight: 3,
+    description: "Domain has 2 subdomains",
+  },
+  {
     key: "subdomain_excessive",
     default_weight: 5,
-    description: "Domain has more than 3 subdomains",
+    description: "Domain has 3 or more subdomains",
   },
   {
     key: "domain_entropy_high",
@@ -120,4 +125,4 @@ export const DEFAULT_SIGNALS = [
 ] as const;
 
 export const DEFAULTS_NOTE =
-  "Profiles override specific weights. Signals not in a profile use these defaults. 23 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";
+  "Profiles override specific weights. Signals not in a profile use these defaults. 24 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";

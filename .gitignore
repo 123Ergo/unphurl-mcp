@@ -4,3 +4,5 @@ dist/
 .env
 .env.*
 .env.local
+.mcpregistry_github_token
+.mcpregistry_registry_token
