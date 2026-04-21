@@ -123,12 +123,12 @@ describe("tool descriptions", () => {
 
   it("create_profile mentions '24' signals and lists all weight keys in input schema", () => {
     const tool = registeredTools.get("create_profile")!;
-    expect(tool.description).toContain("23");
+    expect(tool.description).toContain("24");
     // All 24 weight keys are listed in the weights parameter description, not the tool description
     // The mock captures the raw zod schema; extract the description from the weights field
     const weightsSchema = tool.inputSchema.weights;
     const weightsDesc = weightsSchema?.description ?? "";
-    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "brand_impersonation_floor"];
+    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "brand_impersonation_floor", "subdomain_deep"];
     for (const signal of keySignals) {
       expect(weightsDesc).toContain(signal);
     }
@@ -136,7 +136,7 @@ describe("tool descriptions", () => {
 
   it("show_defaults mentions '24 scoring signals'", () => {
     const tool = registeredTools.get("show_defaults")!;
-    expect(tool.description).toContain("23");
+    expect(tool.description).toContain("24");
     expect(tool.description.toLowerCase()).toContain("scoring signal");
   });
 
