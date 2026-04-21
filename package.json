@@ -1,6 +1,6 @@
 {
   "name": "@unphurl/mcp-server",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "mcpName": "io.github.123Ergo/unphurl",
   "description": "URL intelligence for AI agents and developers. Structured signals on all URLs. 16 tools, 24 signal weights. 20 free checks.",
   "type": "module",
