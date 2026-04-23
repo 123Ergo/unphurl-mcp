@@ -108,6 +108,11 @@ export const DEFAULT_SIGNALS = [
     description: "TLD changed on redirect to a suspicious final TLD (e.g. .com→.xyz fires; .com→.ca does not)",
   },
   {
+    key: "js_fragment_redirect",
+    default_weight: 25,
+    description: "HTML page on object storage (S3, GCS, Azure Blob) reads the URL fragment client-side and redirects the visitor to the decoded destination — a common phishing delivery technique",
+  },
+  {
     key: "expiring_soon",
     default_weight: 10,
     description: "Domain registration expires within 30 days",
@@ -125,4 +130,4 @@ export const DEFAULT_SIGNALS = [
 ] as const;
 
 export const DEFAULTS_NOTE =
-  "Profiles override specific weights. Signals not in a profile use these defaults. 24 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";
+  "Profiles override specific weights. Signals not in a profile use these defaults. 25 configurable signals plus suspicious_tld (+3 points) which is internal only and not configurable.";

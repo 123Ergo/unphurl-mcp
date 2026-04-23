@@ -121,22 +121,22 @@ describe("tool descriptions", () => {
     expect(tool.description).toMatch(/5.minute/i);
   });
 
-  it("create_profile mentions '24' signals and lists all weight keys in input schema", () => {
+  it("create_profile mentions '25' signals and lists all weight keys in input schema", () => {
     const tool = registeredTools.get("create_profile")!;
-    expect(tool.description).toContain("24");
-    // All 24 weight keys are listed in the weights parameter description, not the tool description
+    expect(tool.description).toContain("25");
+    // All 25 weight keys are listed in the weights parameter description, not the tool description
     // The mock captures the raw zod schema; extract the description from the weights field
     const weightsSchema = tool.inputSchema.weights;
     const weightsDesc = weightsSchema?.description ?? "";
-    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "brand_impersonation_floor", "subdomain_deep"];
+    const keySignals = ["brand_impersonation", "domain_age_7", "ssl_invalid", "parked", "no_mx_record", "compound", "brand_impersonation_floor", "subdomain_deep", "js_fragment_redirect"];
     for (const signal of keySignals) {
       expect(weightsDesc).toContain(signal);
     }
   });
 
-  it("show_defaults mentions '24 scoring signals'", () => {
+  it("show_defaults mentions '25 scoring signals'", () => {
     const tool = registeredTools.get("show_defaults")!;
-    expect(tool.description).toContain("24");
+    expect(tool.description).toContain("25");
     expect(tool.description.toLowerCase()).toContain("scoring signal");
   });
 
@@ -171,7 +171,7 @@ describe("tool descriptions", () => {
 });
 
 describe("show_defaults handler", () => {
-  it("returns hardcoded data with 24 signals (no API call)", () => {
+  it("returns hardcoded data with 25 signals (no API call)", () => {
     // show_defaults is hardcoded; no API call happens
     // Call the handler directly and verify the result
     const tool = registeredTools.get("show_defaults")!;
@@ -184,7 +184,7 @@ describe("show_defaults handler", () => {
 
       const parsed = JSON.parse(result.content[0].text);
       expect(parsed).toHaveProperty("signals");
-      expect(parsed.signals).toHaveLength(24);
+      expect(parsed.signals).toHaveLength(25);
       expect(parsed).toHaveProperty("note");
 
       // Verify each signal has key, default_weight, description

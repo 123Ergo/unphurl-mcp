@@ -1,11 +1,11 @@
 // Unit tests for MCP default scoring signals
-// Verifies all 24 configurable signals are present with correct structure
+// Verifies all 25 configurable signals are present with correct structure
 // No server required — tests hardcoded constants
 
 import { describe, it, expect } from "vitest";
 import { DEFAULT_SIGNALS, DEFAULTS_NOTE } from "../../src/defaults.js";
 
-// The 24 configurable signal keys (suspicious_tld is internal only)
+// The 25 configurable signal keys (suspicious_tld is internal only)
 const EXPECTED_KEYS = [
   "brand_impersonation",
   "domain_age_3",
@@ -28,17 +28,18 @@ const EXPECTED_KEYS = [
   "url_contains_ip",
   "encoded_hostname",
   "tld_redirect_change",
+  "js_fragment_redirect",
   "expiring_soon",
   "domain_status_bad",
   "no_mx_record",
 ];
 
 describe("DEFAULT_SIGNALS", () => {
-  it("has exactly 24 entries", () => {
-    expect(DEFAULT_SIGNALS).toHaveLength(24);
+  it("has exactly 25 entries", () => {
+    expect(DEFAULT_SIGNALS).toHaveLength(25);
   });
 
-  it("contains all 24 expected weight keys", () => {
+  it("contains all 25 expected weight keys", () => {
     const actualKeys = DEFAULT_SIGNALS.map((s) => s.key);
     for (const key of EXPECTED_KEYS) {
       expect(actualKeys).toContain(key);

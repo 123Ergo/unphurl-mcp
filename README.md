@@ -6,7 +6,7 @@
  \___/|_| \_|_|   |_| |_|\___/|_| \_\_____|
 ```
 
-**URL intelligence for AI agents and developers. 16 MCP tools. 24 signals. 7 dimensions.**
+**URL intelligence for AI agents and developers. 16 MCP tools. 25 signals. 7 dimensions.**
 
 Give your AI agent eyes for URLs. Unphurl analyses any URL across 7 dimensions (redirect behaviour, brand impersonation, domain age, SSL/TLS, parked detection, URL structure, DNS enrichment) and returns structured signals with a configurable 0-100 risk score. Signals, not verdicts. Your agent decides what to do with them.
 
