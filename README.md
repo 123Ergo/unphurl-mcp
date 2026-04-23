@@ -90,7 +90,7 @@ Every signal is business intelligence. Domain age tells you how established a co
 | `list_profiles` | List your custom scoring profiles | Yes |
 | `create_profile` | Create or update a scoring profile with custom weights | Yes |
 | `delete_profile` | Delete a scoring profile | Yes |
-| `show_defaults` | Show all 23 scoring signals with default weights | No |
+| `show_defaults` | Show all 25 scoring signals with default weights | No |
 | `get_balance` | Check your pipeline check credit balance | Yes |
 | `get_stats` | View usage statistics and score threshold counts | Yes |
 | `get_pricing` | Show available credit packages and pricing | No |
